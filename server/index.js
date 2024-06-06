@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-// get all todos
+// Mendapatkan semua todos
 app.get('/api/todos', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM todos ORDER BY id ASC');
@@ -25,7 +25,7 @@ app.get('/api/todos', async (req, res) => {
     }
 });
 
-// get single todo
+// Mendapatkan satu todo berdasarkan id
 app.get('/api/todos/:id', async (req, res) => {
     try {
         const { id } = req.params;
@@ -41,7 +41,7 @@ app.get('/api/todos/:id', async (req, res) => {
     }
 });
 
-// create new todo
+// Membuat todo baru
 app.post('/api/todos', async (req, res) => {
     try {
         const { title, description } = req.body;
@@ -53,7 +53,7 @@ app.post('/api/todos', async (req, res) => {
     }
 });
 
-// edit todo
+// Mengedit todo
 app.put('/api/todos/:id', async (req, res) => {
     try {
         const { id } = req.params;
@@ -66,7 +66,7 @@ app.put('/api/todos/:id', async (req, res) => {
     }
 });
 
-// delete todo
+// Menghapus todo
 app.delete('/api/todos/:id', async (req, res) => {
     try {
         const { id } = req.params;
